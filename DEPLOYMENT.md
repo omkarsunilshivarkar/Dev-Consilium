@@ -1,61 +1,46 @@
-# 🚀 Deployment Guide
+# 🚀 Deployment Guide (Vercel Multi-Services)
 
-This guide details how to deploy the **Dev Consilium** backend to **Render** and the frontend to **Vercel**.
-
----
-
-## 🏛️ Part 1: Deploy Backend to Render
-
-Render will host the Node.js/Express backend, which handles GitHub cloning and communicates with the Groq API.
-
-### Steps:
-1. Sign in to [Render](https://dashboard.render.com/).
-2. Click the **New +** button and select **Web Service**.
-3. Connect your GitHub repository: `omkarsunilshivarkar/Dev-Consilium`.
-4. Configure the Web Service settings:
-   * **Name:** `dev-consilium-backend` (or your preferred name)
-   * **Region:** Choose the region closest to you
-   * **Branch:** `main`
-   * **Root Directory:** `backend` *(⚠️ Critical: This must be set to `backend`)*
-   * **Runtime:** `Node`
-   * **Build Command:** `npm install`
-   * **Start Command:** `npm start`
-5. Add the necessary Environment Variables:
-   * Scroll down and click **Advanced** -> **Add Environment Variable**.
-   * Add the following keys:
-     * `GROQ_API_KEY` = `your_groq_api_key`
-     * `GROQ_MODEL` = `llama-3.3-70b-versatile` (optional, defaults to this if omitted)
-6. Select the **Free** instance type (or any other tier you prefer).
-7. Click **Deploy Web Service**.
-8. Once the deployment finishes, copy your Web Service URL (e.g., `https://dev-consilium-backend.onrender.com`). You will need this for the frontend configuration.
+This project is configured to deploy both the frontend (React/Vite) and the backend (Node/Express) onto **Vercel** using its multi-service workspace configuration (`vercel.json`).
 
 ---
 
-## 🌐 Part 2: Deploy Frontend to Vercel
+## 🌐 Deploying to Vercel
 
-Vercel will host the React/Vite frontend. It will be configured to point to the backend URL you created in Part 1.
+With the [vercel.json](file:///c:/Omkar.Shivarkar/Dev%20Consilium/vercel.json) file at the root of the workspace, Vercel will build and run both the frontend and backend under the same domain. All `/api/*` traffic will be routed to your backend service automatically.
 
 ### Steps:
+
 1. Sign in to [Vercel](https://vercel.com/).
 2. Click **Add New...** and select **Project**.
 3. Import your GitHub repository: `omkarsunilshivarkar/Dev-Consilium`.
-4. Configure the Project settings:
-   * **Framework Preset:** `Vite` (Vercel should auto-detect this)
-   * **Root Directory:** Keep it as the project root `./` (do not change this to `src` or `backend`)
-   * **Build Command:** `npm run build`
-   * **Output Directory:** `dist`
-5. Add the Environment Variable to link to the backend:
-   * Expand the **Environment Variables** section.
-   * Add:
-     * **Key:** `VITE_API_BASE_URL`
-     * **Value:** `https://your-render-backend-url.onrender.com` (replace with your actual Render Web Service URL from Part 1. *Note: Do not add a trailing slash*)
+4. Vercel will automatically detect the `vercel.json` configuration and provision the services.
+5. **Configure Environment Variables:**
+   * Go to the **Environment Variables** section in your Vercel project settings.
+   * Add the following variable required by the backend:
+     * **Key:** `GROQ_API_KEY`
+     * **Value:** `your_groq_api_key_here`
+   * *(Optional)* **Key:** `GROQ_MODEL`
+     * **Value:** `llama-3.3-70b-versatile` (defaults to this if not specified)
 6. Click **Deploy**.
-7. Once completed, Vercel will provide you with a production URL for your frontend application!
+7. Vercel will deploy your application and provide a single URL.
+   * The frontend will load at the main URL.
+   * The backend API endpoints will be accessible under `/api/*` on the same domain.
 
 ---
 
-## 🔄 Updating Deployment
+## 💻 Local Development
 
-Whenever you push new changes to the `main` branch of your GitHub repository:
-- Render will automatically rebuild and redeploy your backend.
-- Vercel will automatically rebuild and redeploy your frontend.
+During local development, Vite's dev server is configured to proxy all `/api` requests to `http://localhost:3000`.
+
+To run the project locally:
+1. Start the backend:
+   ```bash
+   cd backend
+   npm install
+   npm run dev
+   ```
+2. Start the frontend (from project root in a new terminal):
+   ```bash
+   npm install
+   npm run dev
+   ```
