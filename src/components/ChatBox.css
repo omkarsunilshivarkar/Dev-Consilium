@@ -1,0 +1,23 @@
+/* ChatBox Component Custom Styles */
+.chat-terminal-body {
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages-container {
+  flex: 1;
+  max-height: 280px;
+}
+
+.chat-caret {
+  color: var(--term-green);
+  align-self: center;
+  font-size: 0.85rem;
+  margin-right: 2px;
+}
+
+.chat-send-btn {
+  background: var(--term-green);
+}

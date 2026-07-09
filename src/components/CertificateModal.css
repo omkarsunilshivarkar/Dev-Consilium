@@ -1,0 +1,36 @@
+/* CertificateModal Component Custom Styles */
+.cert-modal-window {
+  background: var(--term-bg-darker) !important;
+}
+
+.cert-modal-titlebar {
+  width: 100%;
+}
+
+.cert-modal-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cert-close-dot {
+  cursor: pointer;
+}
+
+.cert-repo-heading {
+  font-family: var(--font-mono);
+  margin: 8px 0;
+  font-size: 0.95rem;
+  word-break: break-all;
+  color: var(--term-cyan);
+}
+
+.cert-score-item-value {
+  color: var(--term-green);
+}
+
+.cert-primary-btn {
+  width: 100%;
+}

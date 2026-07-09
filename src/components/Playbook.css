@@ -1,0 +1,21 @@
+/* Playbook Component Custom Styles */
+.playbook-section-title {
+  margin-bottom: 0;
+}
+
+.playbook-empty-view {
+  padding: 30px;
+  text-align: center;
+  color: var(--term-text-muted);
+}
+
+.playbook-ticket-body {
+  padding: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.playbook-diff-spacer {
+  margin-top: 8px;
+}

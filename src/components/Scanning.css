@@ -1,0 +1,54 @@
+/* Scanning Component Custom Styles */
+.scanning-header-term {
+  background: var(--term-bg-surface);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+}
+
+.scanning-console-box {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.agent-label-ux {
+  background: var(--term-cyan);
+  color: var(--term-bg-darker);
+}
+
+.agent-label-arch {
+  background: var(--term-magenta);
+  color: var(--term-bg-darker);
+}
+
+.agent-label-perf {
+  background: var(--term-green);
+  color: var(--term-bg-darker);
+}
+
+.agent-label-sec {
+  background: var(--term-rose);
+  color: var(--term-bg-darker);
+}
+
+.agent-label-scale {
+  background: var(--term-blue);
+  color: var(--term-bg-darker);
+}
+
+.agent-label-rev {
+  background: var(--term-yellow);
+  color: var(--term-bg-darker);
+}
+
+.line-msg-system {
+  color: var(--term-text-muted);
+}
+
+.line-msg-cursor {
+  color: var(--term-green);
+}
+
+.bash-cmd-text {
+  color: var(--term-text-primary);
+}
