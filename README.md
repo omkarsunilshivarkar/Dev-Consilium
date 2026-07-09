@@ -79,3 +79,10 @@ npm install
 npm run dev
 ```
 Open `http://localhost:5173` in your browser.
+
+---
+
+## 🚀 Deployment
+
+For production deployment instructions on hosting the frontend on Vercel and the backend on Render, see the [Deployment Guide](DEPLOYMENT.md).
+
