@@ -1,0 +1,90 @@
+/* Scope Selector custom styles */
+.scope-selector-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 10px;
+}
+
+.scope-selector-label {
+  font-size: 0.8rem;
+  color: var(--term-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.scope-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 860px;
+}
+
+.scope-opt-btn {
+  background: var(--term-bg-dark);
+  border: 1px solid var(--term-border);
+  color: var(--term-text-secondary);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 130px;
+  text-align: center;
+}
+
+.scope-opt-btn:hover {
+  background: var(--term-bg-surface-hover);
+  border-color: var(--term-border-hover);
+  color: var(--term-text-primary);
+}
+
+.scope-opt-btn.active {
+  background: var(--term-bg-surface);
+  border-color: var(--term-cyan);
+  color: var(--term-cyan);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
+}
+
+.scope-opt-btn .opt-icon {
+  font-size: 1.25rem;
+}
+
+.scope-opt-btn .opt-label {
+  font-weight: 700;
+}
+
+.scope-opt-btn .opt-flag {
+  font-size: 0.6rem;
+  color: var(--term-text-muted);
+}
+
+.scope-opt-btn.active .opt-flag {
+  color: var(--term-cyan);
+}
+
+/* Highlight card styles for selected scope agent card */
+.intro-card {
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.intro-card.highlight-card {
+  border-color: var(--term-cyan);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+  transform: translateY(-2px);
+}
+
+.intro-card.highlight-card .terminal-title {
+  color: var(--term-cyan);
+}
